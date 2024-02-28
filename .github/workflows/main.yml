@@ -12,6 +12,11 @@ on:
         required: false
         type: string
 
+permissions:
+  actions: write
+  repository-projects: write
+  contents: write
+
 jobs:
   assign_tag:
     runs-on: ubuntu-latest
