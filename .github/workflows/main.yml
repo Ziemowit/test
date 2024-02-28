@@ -29,7 +29,6 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.commit }}
           fetch-depth: 0
 
       - uses: rickstaa/action-create-tag@v1
