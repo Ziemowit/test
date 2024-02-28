@@ -20,8 +20,6 @@ permissions:
 jobs:
   assign_tag:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     outputs:
       release_tag: ${{ steps.assign_tag.outputs.release_tag }}
     steps:
