@@ -1,4 +1,4 @@
-name: (DEV) Deploy to Amazon ECR on demand
+name: Kopytko
 
 on:
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
         if: "${{ inputs.tag == '' }}"
         run: echo "RELEASE_TAG=R.$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
-      - run: git tag ${{ env.RELEASE_TAG }}
+      - run: echo "🎉 First job ${{ github.env.RELEASE_TAG }} event."
 
   build_dev:
     needs: assign_tag
