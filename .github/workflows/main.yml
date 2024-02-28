@@ -34,7 +34,7 @@ jobs:
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         with:
-          tag: ${{ env.RELEASE_TAG }}
+          tag: "abc"
           tag_exists_error: true
           commit_sha: ${{ inputs.commit }}
 
