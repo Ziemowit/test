@@ -31,8 +31,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
-        with:
-          tag: ${{ env.RELEASE_TAG }}
-          commit_sha: ${{ inputs.commit }}
+          fetch-tags: true
+      - run: |
+          git tag ${{ env.RELEASE_TAG }} ${{ inputs.commit }}
+          git push --tag
