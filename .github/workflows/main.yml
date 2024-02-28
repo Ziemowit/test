@@ -37,7 +37,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: git tag ${{ env.RELEASE_TAG }} ${{ inputs.commit }}
-      - run: git push origin ${{ env.RELEASE_TAG }}
+      - run: git push --tag
 
 #      - name: Assign tag
 #        id: assign_tag
