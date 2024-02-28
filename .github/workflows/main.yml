@@ -33,7 +33,7 @@ jobs:
 
       - name: Assign tag
         id: assign_tag
-        run: echo ${{ env.RELEASE_TAG }} >> "$GITHUB_OUTPUT"
+        run: echo "release_tag=${{ env.RELEASE_TAG }}" >> "$GITHUB_OUTPUT"
 
   build_dev:
     needs: assign_tag
