@@ -44,9 +44,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: |
-          git tag "snake"
-          git push --tag
+      - uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: "rickstaa-1"
+          commit_sha: ${{ inputs.commit }}
+
 
 #      - name: Assign tag
 #        id: assign_tag
