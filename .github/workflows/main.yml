@@ -45,7 +45,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          git tag ${{ env.RELEASE_TAG }} ${{ inputs.commit }}
+          git tag "snake" "${{ inputs.commit }}"
           git push origin --tag
 
 #      - name: Assign tag
