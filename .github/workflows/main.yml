@@ -47,18 +47,5 @@ jobs:
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         with:
-          tag: "rickstaa-1"
-          commit_sha: ${{ inputs.commit }}
+          tag: ${{ env.RELEASE_TAG }}
 
-
-#      - name: Assign tag
-#        id: assign_tag
-#        run: echo "release_tag=${{ env.RELEASE_TAG }}" >> "$GITHUB_OUTPUT"
-#
-#  build_dev:
-#    needs: assign_tag
-#    runs-on: ubuntu-latest
-#    env:
-#      AWS_REGION: eu-central-1
-#    steps:
-#      - run: echo "🎉 The job was automatically triggered by a ${{ needs.assign_tag.outputs.release_tag }} event."
