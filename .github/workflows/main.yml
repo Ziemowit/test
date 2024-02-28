@@ -29,11 +29,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: rickstaa/action-create-tag@v1
+      - uses: rickstaa/action-create-tag@v1.6.9
         id: "tag_create"
         with:
           tag: "latest"
-          tag_exists_error: false
           message: "Latest release"
 #
 #      - name: Assign tag
