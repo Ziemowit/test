@@ -28,11 +28,10 @@ jobs:
         if: "${{ inputs.tag == '' }}"
         run: echo "RELEASE_TAG=R.$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
-      - uses: actions/checkout@v4
-      - run: |
-          git tag ${{ env.RELEASE_TAG }}
-          git push --tag
-#
+      - uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: ${{ env.RELEASE_TAG }}
 #      - name: Assign tag
 #        id: assign_tag
 #        run: echo "release_tag=${{ env.RELEASE_TAG }}" >> "$GITHUB_OUTPUT"
