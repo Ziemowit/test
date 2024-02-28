@@ -12,6 +12,9 @@ on:
         required: false
         type: string
 
+permissions:
+  actions: write
+
 jobs:
   assign_tag:
     runs-on: ubuntu-latest
