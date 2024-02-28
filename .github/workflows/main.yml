@@ -27,8 +27,9 @@ jobs:
         run: echo "RELEASE_TAG=R.$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
       - uses: actions/checkout@v4
-      - run: git tag ${{ env.RELEASE_TAG }}
-      - run: git push origin ${{github.run_id}}
+      - run: |
+          git tag ${{ env.RELEASE_TAG }}
+          git push --tag
 #
 #      - name: Assign tag
 #        id: assign_tag
