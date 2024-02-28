@@ -48,4 +48,4 @@ jobs:
         id: "tag_create"
         with:
           tag: ${{ env.RELEASE_TAG }}
-
+          commit_sha: ${{ inputs.commit }}
