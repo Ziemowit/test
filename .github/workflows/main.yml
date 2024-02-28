@@ -28,15 +28,12 @@ jobs:
 
       - name: Checkout the code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - uses: rickstaa/action-create-tag@v1
         id: "tag_create"
         with:
           tag: "abc"
           tag_exists_error: true
-          commit_sha: ${{ inputs.commit }}
 
       - name: Assign tag
         id: assign_tag
