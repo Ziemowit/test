@@ -31,11 +31,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ inputs.commit }}
+      - run: git tag ${{ env.RELEASE_TAG }}
+      - run: git push --tag
 
-      - uses: rickstaa/action-create-tag@v1
-        id: "tag_create"
-        with:
-          tag: ${{ env.RELEASE_TAG }}
 #      - name: Assign tag
 #        id: assign_tag
 #        run: echo "release_tag=${{ env.RELEASE_TAG }}" >> "$GITHUB_OUTPUT"
