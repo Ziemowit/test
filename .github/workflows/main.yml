@@ -16,6 +16,16 @@ permissions:
   actions: write
   repository-projects: write
   contents: write
+  pull-requests: write
+  checks: write
+  deployments: write
+  discussions: write
+  id-token: write
+  issues: write
+  packages: write
+  pages: write
+  security-events: write
+  statuses: write
 
 jobs:
   assign_tag:
