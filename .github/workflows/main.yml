@@ -12,14 +12,11 @@ on:
         required: false
         type: string
 
-permissions:
-  actions: write
-  repository-projects: write
-  contents: write
-
 jobs:
   assign_tag:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     outputs:
       release_tag: ${{ steps.assign_tag.outputs.release_tag }}
     steps:
