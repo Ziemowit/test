@@ -29,7 +29,7 @@ jobs:
         if: "${{ inputs.tag == '' }}"
         run: echo "RELEASE_TAG=R.$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
 
-      - run: echo "🎉 First job ${{ github.RELEASE_TAG }} event."
+      - run: echo "🎉 First job ${{ env.RELEASE_TAG }} event."
 
   build_dev:
     needs: assign_tag
@@ -37,4 +37,4 @@ jobs:
     env:
       AWS_REGION: eu-central-1
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.RELEASE_TAG }} event."
+      - run: echo "🎉 The job was automatically triggered by a ${{ env.RELEASE_TAG }} event."
