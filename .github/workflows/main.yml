@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        description: 'The branch, tag or SHA to checkout'
+        description: 'The commit SHA to tag'
         required: true
         type: string
       tag:
-        description: 'The optional docker image tag for the output target'
-        required: false
+        description: 'The tag name'
+        required: true
         type: string
 
 permissions: write-all
@@ -20,18 +20,9 @@ jobs:
     outputs:
       release_tag: ${{ steps.assign_tag.outputs.release_tag }}
     steps:
-      - name: Set custom TAG
-        if: "${{ inputs.tag != '' }}"
-        run: echo "RELEASE_TAG=${{ inputs.tag }}" >> $GITHUB_ENV
-
-      - name: Set current date as TAG
-        if: "${{ inputs.tag == '' }}"
-        run: echo "RELEASE_TAG=R.$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_ENV
-
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
-      - run: |
-          git tag ${{ env.RELEASE_TAG }} ${{ inputs.commit }}
-          git push --tag
+      - run: git tag ${{ inputs.tag }} ${{ inputs.commit }}
+      - run: git push --tag
