@@ -24,5 +24,5 @@ jobs:
         with:
           fetch-depth: 0
           fetch-tags: true
-      - run: git tag -a ${{ inputs.tag }} ${{ inputs.commit }}
-      - run: git push --tag
+      - name: Tag commit
+        run: git tag ${{ inputs.tag }} ${{ inputs.commit }}
