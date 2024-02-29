@@ -26,7 +26,7 @@ jobs:
           fetch-tags: true
       - name: Tag commit
         run: |
-          git tag ${{ inputs.tag }} ${{ inputs.commit }}
-          git push origin ${{ inputs.tag }}
+          git tag v1.0 ${{ inputs.commit }}
+          git push origin v1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
