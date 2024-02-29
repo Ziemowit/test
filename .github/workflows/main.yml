@@ -25,4 +25,8 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
       - name: Tag commit
-        run: git tag ${{ inputs.tag }} ${{ inputs.commit }}
+        run: |
+          git tag ${{ inputs.tag }} ${{ inputs.commit }}
+          git push origin ${{ inputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
